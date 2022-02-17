@@ -1,0 +1,23 @@
+#入口檔案 : public / index.html
+#默認主機 : localhost:3000
+#設定檔指令 : package.json "scripts"
+"start" : 啟動 yarn start
+"build" : 打包 yarn build
+"test" : 測試 yarn test
+"eject" : 彈出詳細設定檔，修改特殊 yarn eject
+
+
+# 程式碼寫在scr路徑底下
+src/index.js 對應到 public/index.html
+
+# 虛擬DOM概念
+ReactDOM.render把虛擬的DOM(App.js)轉到真實的DOM(index.html裡的document.getElementById('root'))
+ReactDOM.render(
+  <React.StrictMode> React的檢查工具
+    <App /> App.js函式型元件
+  </React.StrictMode>, 
+  document.getElementById('root')
+);
+
+
+# React 不使用 id selector

@@ -1,0 +1,7 @@
+{
+  "singleQuote": true,
+  "trailingComma": "es5",
+  // semi 是否以分號作為結尾
+  "semi": false,
+  "endOfLine": "auto"
+}
