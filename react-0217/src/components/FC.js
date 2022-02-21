@@ -1,4 +1,3 @@
-/* eslint-disable no-unreachable */
 import { useState } from 'react';
 
 // FC = Functional Component

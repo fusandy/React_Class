@@ -5,6 +5,13 @@ import './App.css';
 import { data } from './data/student';
 // 0221 課堂: 邏輯判斷流程控制
 import FC from './components/FC';
+// 0221 課堂: 父元件傳遞資料到子元件 props
+import Parent from './components/Parent';
+// 0221 課堂: SocialShare props
+import SocialShare from './components/SocialShare';
+// 0221 課堂: homework1
+import './menu.css';
+import Menu from './components/Menu';
 
 function App() {
   // 原始老師講義程式碼
@@ -57,7 +64,8 @@ function App() {
   //     <p>沒有呼叫function，所以網頁上也不會有畫面</p>
   //     {() => console.log('h1')}
   //   </>
-  // );
+  // )
+
   // 0221 課堂: map 與 key
   // console.log(data);
   // const newData = data.map((v, i) => {
@@ -79,9 +87,30 @@ function App() {
   // );
 
   // 0221 課堂: 邏輯判斷流程控制
+  // return (
+  //   <>
+  //     <FC />
+  //   </>
+  // );
+
+  // 0221 課堂: 父元件傳遞資料到子元件 props
+  // return (
+  //   <>
+  //     <Parent />
+  //   </>
+  // );
+
+  // 0221 課堂: SocialShare props
+  // return (
+  //   <>
+  //     <SocialShare url="http://localhost:3000" round={true} />
+  //   </>
+  // );
+
+  // 0221 課堂: homework1
   return (
     <>
-      <FC />
+      <Menu />
     </>
   );
 }
