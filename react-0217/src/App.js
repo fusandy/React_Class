@@ -12,6 +12,10 @@ import SocialShare from './components/SocialShare';
 // 0221 課堂: homework1
 import './menu.css';
 import Menu from './components/Menu';
+// 0222 課堂: 父子元件傳遞資料
+import Parent0222 from './components/Parent0222';
+// 0222 課堂: homework2
+import ArrayPractice from './components/ArrayPractice';
 
 function App() {
   // 原始老師講義程式碼
@@ -108,9 +112,23 @@ function App() {
   // );
 
   // 0221 課堂: homework1
+  // return (
+  //   <>
+  //     <Menu />
+  //   </>
+  // );
+
+  // 0222 課堂: 父子元件傳遞資料
+  // return (
+  //   <>
+  //     <Parent0222 />
+  //   </>
+  // );
+
+  // 0222 課堂: homework2
   return (
     <>
-      <Menu />
+      <ArrayPractice />
     </>
   );
 }
