@@ -16,6 +16,59 @@ import Menu from './components/Menu';
 import Parent0222 from './components/Parent0222';
 // 0222 課堂: homework2
 import ArrayPractice from './components/ArrayPractice';
+// 0222 課堂: 實例(購物車)
+import OrderList from './components/OrderList';
+import Summary from './components/Summary';
+import { useState } from 'react';
+// 多樣商品的狀態使用陣列作處理
+import MultipleItem from './components/MultipleItem';
+
+const products = [
+  {
+    id: 1,
+    name: 'Brown T-shirt',
+    categroy: 'Shirt',
+    image: 'https://i.imgur.com/1GrakTl.jpg',
+    price: 300,
+  },
+  {
+    id: 2,
+    name: 'White T-shirt',
+    categroy: 'Shirt',
+    image: 'https://i.imgur.com/ba3tvGm.jpg',
+    price: 200,
+  },
+  {
+    id: 3,
+    name: 'Black T-shirt',
+    categroy: 'Shirt',
+    image: 'https://i.imgur.com/pHQ3xT3.jpg',
+    price: 500,
+  },
+  {
+    id: 4,
+    name: 'Black T-shirt',
+    categroy: 'Shirt',
+    image: 'https://i.imgur.com/pHQ3xT3.jpg',
+    price: 100,
+  },
+  {
+    id: 5,
+    name: 'White T-shirt',
+    categroy: 'Shirt',
+    image: 'https://i.imgur.com/ba3tvGm.jpg',
+    price: 600,
+  },
+];
+// 動態設置初始化狀態
+const initState = (array) => {
+  const state = [];
+  for (let i = 0; i < array.length; i++) {
+    // 假設所有商品初始值都是一個
+    state.push(1);
+  }
+  return state;
+};
 
 function App() {
   // 原始老師講義程式碼
@@ -126,11 +179,55 @@ function App() {
   // );
 
   // 0222 課堂: homework2
+  // return (
+  //   <>
+  //     <ArrayPractice />
+  //   </>
+  // );
+
+  // 0222 課堂: 實例(購物車)
+  // counts is an array which contains amount of each item.
+  const [counts, setCounts] = useState(initState(products));
+
+  // Summary 計算
+  // initial state of totalAmount
+  const totalAmount = () => {
+    let totalCount = 0;
+    for (let i = 0; i < counts.length; i++) {
+      totalCount += counts[i];
+    }
+    return totalCount;
+  };
+  // initial state of totalPrice
+  const totalPrice = () => {
+    let sum = 0;
+    for (let i = 0; i < products.length; i++) {
+      sum += counts[i] * products[i].price;
+    }
+    return sum;
+  };
+
+  // 傳資料到子元件
   return (
-    <>
-      <ArrayPractice />
-    </>
+    <div className="card">
+      <div className="row">
+        <OrderList
+          products={products}
+          counts={counts}
+          setCounts={setCounts}
+          totalAmount={totalAmount()}
+        />
+        <Summary totalAmount={totalAmount()} totalPrice={totalPrice()} />
+      </div>
+    </div>
   );
+
+  // 0222 課堂: // 多樣商品的狀態使用陣列作處理
+  // return (
+  //   <>
+  //     <MultipleItem />
+  //   </>
+  // );
 }
 
 export default App;
