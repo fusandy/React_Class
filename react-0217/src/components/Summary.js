@@ -1,3 +1,4 @@
+// 0222 課堂: 實例(購物車)
 // import React from 'react';
 
 function Summary(props) {

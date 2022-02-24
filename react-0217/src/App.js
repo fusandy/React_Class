@@ -1,6 +1,6 @@
 // 函式型元件，這邊導入一個SVG Logo
 import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 // 0221 課堂: map 與 key
 import { data } from './data/student';
 // 0221 課堂: 邏輯判斷流程控制
@@ -20,8 +20,17 @@ import ArrayPractice from './components/ArrayPractice';
 import OrderList from './components/OrderList';
 import Summary from './components/Summary';
 import { useState } from 'react';
-// 多樣商品的狀態使用陣列作處理
+// 0222 課堂: 多樣商品的狀態使用陣列作處理
 import MultipleItem from './components/MultipleItem';
+// 0224 課堂: React可控表單元素
+import InputValue from './components/InputValue';
+// 0224 課堂: 多個表單元素共用一個狀態
+import InputObjectState from './components/InputObjectState';
+// 0224 課堂: 關閉HTML5預設錯誤訊息，搜尋自訂錯誤訊息，並展示在指定位置
+import HTML5FormValidate from './components/HTML5FormValidate';
+// 0224 課堂: 表單驗證完成版
+import FormValidate from './components/FormValidate';
+import './HTML5Form.css';
 
 const products = [
   {
@@ -186,48 +195,86 @@ function App() {
   // );
 
   // 0222 課堂: 實例(購物車)
+  // todo:: 把count屬性加進新物件中，研究reduce累加器API寫法
+  // 多樣產品狀態: 物件
+  // [{
+  //     id: 1,
+  //     name: 'Brown T-shirt',
+  //     categroy: 'Shirt',
+  //     image: 'https://i.imgur.com/1GrakTl.jpg',
+  //     price: 300,
+  //     count:1,
+  // }]
+
   // counts is an array which contains amount of each item.
-  const [counts, setCounts] = useState(initState(products));
+  // const [counts, setCounts] = useState(initState(products));
 
-  // Summary 計算
-  // initial state of totalAmount
-  const totalAmount = () => {
-    let totalCount = 0;
-    for (let i = 0; i < counts.length; i++) {
-      totalCount += counts[i];
-    }
-    return totalCount;
-  };
-  // initial state of totalPrice
-  const totalPrice = () => {
-    let sum = 0;
-    for (let i = 0; i < products.length; i++) {
-      sum += counts[i] * products[i].price;
-    }
-    return sum;
-  };
+  // // Summary 計算
+  // // initial state of totalAmount
+  // const totalAmount = () => {
+  //   let totalCount = 0;
+  //   for (let i = 0; i < counts.length; i++) {
+  //     totalCount += counts[i];
+  //   }
+  //   return totalCount;
+  // };
+  // // initial state of totalPrice
+  // const totalPrice = () => {
+  //   let sum = 0;
+  //   for (let i = 0; i < products.length; i++) {
+  //     sum += counts[i] * products[i].price;
+  //   }
+  //   return sum;
+  // };
 
-  // 傳資料到子元件
-  return (
-    <div className="card">
-      <div className="row">
-        <OrderList
-          products={products}
-          counts={counts}
-          setCounts={setCounts}
-          totalAmount={totalAmount()}
-        />
-        <Summary totalAmount={totalAmount()} totalPrice={totalPrice()} />
-      </div>
-    </div>
-  );
+  // // 傳資料到子元件
+  // return (
+  //   <div className="card">
+  //     <div className="row">
+  //       <OrderList
+  //         products={products}
+  //         counts={counts}
+  //         setCounts={setCounts}
+  //         totalAmount={totalAmount()}
+  //       />
+  //       <Summary totalAmount={totalAmount()} totalPrice={totalPrice()} />
+  //     </div>
+  //   </div>
+  // );
 
-  // 0222 課堂: // 多樣商品的狀態使用陣列作處理
+  // 0222 課堂: 多樣商品的狀態使用陣列作處理
   // return (
   //   <>
   //     <MultipleItem />
   //   </>
   // );
+
+  // 0224 課堂: React可控表單元素
+  // return (
+  //   <>
+  //     <InputValue />
+  //   </>
+  // );
+
+  // 0224 課堂: 多個表單元素共用一個狀態
+  // return (
+  //   <>
+  //     <InputObjectState />
+  //   </>
+  // );
+
+  // 0224 課堂: 關閉HTML5預設錯誤訊息，搜尋自訂錯誤訊息，並展示在指定位置
+  // return (
+  //   <>
+  //     <HTML5FormValidate />
+  //   </>
+  // );
+  // 0224 課堂: 表單驗證完成版
+  return (
+    <>
+      <FormValidate />
+    </>
+  );
 }
 
 export default App;

@@ -1,3 +1,4 @@
+// 0221 課堂: SocialShare props
 import { FacebookIcon, LineIcon } from 'react-share';
 import { FacebookShareButton, LineShareButton } from 'react-share';
 

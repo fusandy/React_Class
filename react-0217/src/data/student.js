@@ -1,3 +1,4 @@
+// 0221 課堂: map 與 key
 const data = [
   { id: 107001, name: '張佳蓉', birth: 990101 },
   { id: 107002, name: '楊智云', birth: 981211 },

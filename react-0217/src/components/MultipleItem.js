@@ -1,3 +1,4 @@
+// 0222 課堂: 多樣商品的狀態使用陣列作處理
 // 多樣商品的狀態使用陣列作處理
 import { array } from 'prop-types';
 import React, { useState } from 'react';
