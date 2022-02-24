@@ -8,8 +8,10 @@ function ProductItem(props) {
   //     price:44.00,
   // }
 
-  const { name, category, image, price, counts, setCounts } = props;
+  // const { name, category, image, price, counts, setCounts } = props;
 
+  // 陣列物件的寫法
+  const { name, category, image, price, count, setCount, handleDelete } = props;
   return (
     <>
       <div className="card mb-2">
@@ -26,18 +28,18 @@ function ProductItem(props) {
               <a
                 href="#/"
                 onClick={() => {
-                  setCounts(counts - 1);
+                  count === 1 ? setCount(count) : setCount(count - 1);
                 }}
               >
                 -
               </a>
               <a href="#/" className="border">
-                {counts}
+                {count}
               </a>
               <a
                 href="#/"
                 onClick={() => {
-                  setCounts(counts + 1);
+                  setCount(count + 1);
                 }}
               >
                 +
@@ -45,7 +47,9 @@ function ProductItem(props) {
             </div>
             <div className="col">
               $ {price}
-              <span className="close">&#10005;</span>
+              <span className="close" onClick={handleDelete}>
+                &#10005;
+              </span>
             </div>
           </div>
         </div>

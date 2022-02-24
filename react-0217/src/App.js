@@ -1,6 +1,6 @@
 // 函式型元件，這邊導入一個SVG Logo
 import logo from './logo.svg';
-// import './App.css';
+import './App.css';
 // 0221 課堂: map 與 key
 import { data } from './data/student';
 // 0221 課堂: 邏輯判斷流程控制
@@ -70,11 +70,20 @@ const products = [
   },
 ];
 // 動態設置初始化狀態
-const initState = (array) => {
+// const initState = (array) => {
+//   const state = [];
+//   for (let i = 0; i < array.length; i++) {
+//     // 假設所有商品初始值都是一個
+//     state.push(1);
+//   }
+//   return state;
+// };
+
+// 購物車初始化狀態，用陣列中的物件狀態
+const initStateWithObject = (products) => {
   const state = [];
-  for (let i = 0; i < array.length; i++) {
-    // 假設所有商品初始值都是一個
-    state.push(1);
+  for (let i = 0; i < products.length; i++) {
+    state.push({ ...products[i], count: 1 });
   }
   return state;
 };
@@ -208,9 +217,13 @@ function App() {
 
   // counts is an array which contains amount of each item.
   // const [counts, setCounts] = useState(initState(products));
+  // 陣列物件狀態寫法
+  const [productsInOrder, setProductsInOrder] = useState(
+    initStateWithObject(products)
+  );
 
-  // // Summary 計算
-  // // initial state of totalAmount
+  // Summary 計算
+  // initial state of totalAmount
   // const totalAmount = () => {
   //   let totalCount = 0;
   //   for (let i = 0; i < counts.length; i++) {
@@ -218,7 +231,16 @@ function App() {
   //   }
   //   return totalCount;
   // };
-  // // initial state of totalPrice
+  // 陣列物件狀態寫法
+  const productCount = () => {
+    let totalCount = 0;
+    for (let i = 0; i < productsInOrder.length; i++) {
+      totalCount += productsInOrder[i].count;
+    }
+    return totalCount;
+  };
+
+  // initial state of totalPrice
   // const totalPrice = () => {
   //   let sum = 0;
   //   for (let i = 0; i < products.length; i++) {
@@ -226,21 +248,35 @@ function App() {
   //   }
   //   return sum;
   // };
+  // 陣列物件狀態寫法
+  const total = () => {
+    let sum = 0;
+    for (let i = 0; i < productsInOrder.length; i++) {
+      sum += productsInOrder[i].count * productsInOrder[i].price;
+    }
+    return sum;
+  };
 
-  // // 傳資料到子元件
-  // return (
-  //   <div className="card">
-  //     <div className="row">
-  //       <OrderList
-  //         products={products}
-  //         counts={counts}
-  //         setCounts={setCounts}
-  //         totalAmount={totalAmount()}
-  //       />
-  //       <Summary totalAmount={totalAmount()} totalPrice={totalPrice()} />
-  //     </div>
-  //   </div>
-  // );
+  // 傳資料到子元件
+  return (
+    <div className="card">
+      <div className="row">
+        {/* <OrderList
+          products={products}
+          counts={counts}
+          setCounts={setCounts}
+          totalAmount={totalAmount()}
+        />
+        <Summary totalAmount={totalAmount()} totalPrice={totalPrice()} /> */}
+        <OrderList
+          productsInOrder={productsInOrder}
+          setProductsInOrder={setProductsInOrder}
+          productCount={productCount()}
+        />
+        <Summary productCount={productCount()} total={total()} />
+      </div>
+    </div>
+  );
 
   // 0222 課堂: 多樣商品的狀態使用陣列作處理
   // return (
@@ -270,11 +306,11 @@ function App() {
   //   </>
   // );
   // 0224 課堂: 表單驗證完成版
-  return (
-    <>
-      <FormValidate />
-    </>
-  );
+  // return (
+  //   <>
+  //     <FormValidate />
+  //   </>
+  // );
 }
 
 export default App;
