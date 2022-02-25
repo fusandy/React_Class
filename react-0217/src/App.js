@@ -1,6 +1,6 @@
 // 函式型元件，這邊導入一個SVG Logo
 import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 // 0221 課堂: map 與 key
 import { data } from './data/student';
 // 0221 課堂: 邏輯判斷流程控制
@@ -31,6 +31,15 @@ import HTML5FormValidate from './components/HTML5FormValidate';
 // 0224 課堂: 表單驗證完成版
 import FormValidate from './components/FormValidate';
 import './HTML5Form.css';
+// 0225 課堂: RefsForm vs IdForm
+import IdForm from './components/IdForm';
+import RefsForm from './components/RefsForm';
+// 0225 課堂: 類別型元件生命週期方法
+import CCLifeCycle from './components/CCLifeCycle';
+// 0225 課堂: 函式型元件生命週期方法
+import FCLifeCycle from './components/FCLifeCycle';
+// 0225 課堂: 旋轉指示器
+import UserList from './components/UserList';
 
 const products = [
   {
@@ -218,9 +227,9 @@ function App() {
   // counts is an array which contains amount of each item.
   // const [counts, setCounts] = useState(initState(products));
   // 陣列物件狀態寫法
-  const [productsInOrder, setProductsInOrder] = useState(
-    initStateWithObject(products)
-  );
+  // const [productsInOrder, setProductsInOrder] = useState(
+  //   initStateWithObject(products)
+  // );
 
   // Summary 計算
   // initial state of totalAmount
@@ -232,13 +241,13 @@ function App() {
   //   return totalCount;
   // };
   // 陣列物件狀態寫法
-  const productCount = () => {
-    let totalCount = 0;
-    for (let i = 0; i < productsInOrder.length; i++) {
-      totalCount += productsInOrder[i].count;
-    }
-    return totalCount;
-  };
+  // const productCount = () => {
+  //   let totalCount = 0;
+  //   for (let i = 0; i < productsInOrder.length; i++) {
+  //     totalCount += productsInOrder[i].count;
+  //   }
+  //   return totalCount;
+  // };
 
   // initial state of totalPrice
   // const totalPrice = () => {
@@ -249,34 +258,34 @@ function App() {
   //   return sum;
   // };
   // 陣列物件狀態寫法
-  const total = () => {
-    let sum = 0;
-    for (let i = 0; i < productsInOrder.length; i++) {
-      sum += productsInOrder[i].count * productsInOrder[i].price;
-    }
-    return sum;
-  };
+  // const total = () => {
+  //   let sum = 0;
+  //   for (let i = 0; i < productsInOrder.length; i++) {
+  //     sum += productsInOrder[i].count * productsInOrder[i].price;
+  //   }
+  //   return sum;
+  // };
 
   // 傳資料到子元件
-  return (
-    <div className="card">
-      <div className="row">
-        {/* <OrderList
-          products={products}
-          counts={counts}
-          setCounts={setCounts}
-          totalAmount={totalAmount()}
-        />
-        <Summary totalAmount={totalAmount()} totalPrice={totalPrice()} /> */}
-        <OrderList
-          productsInOrder={productsInOrder}
-          setProductsInOrder={setProductsInOrder}
-          productCount={productCount()}
-        />
-        <Summary productCount={productCount()} total={total()} />
-      </div>
-    </div>
-  );
+  // return (
+  //   <div className="card">
+  //     <div className="row">
+  //       {/* <OrderList
+  //         products={products}
+  //         counts={counts}
+  //         setCounts={setCounts}
+  //         totalAmount={totalAmount()}
+  //       />
+  //       <Summary totalAmount={totalAmount()} totalPrice={totalPrice()} /> */}
+  //       <OrderList
+  //         productsInOrder={productsInOrder}
+  //         setProductsInOrder={setProductsInOrder}
+  //         productCount={productCount()}
+  //       />
+  //       <Summary productCount={productCount()} total={total()} />
+  //     </div>
+  //   </div>
+  // );
 
   // 0222 課堂: 多樣商品的狀態使用陣列作處理
   // return (
@@ -305,12 +314,48 @@ function App() {
   //     <HTML5FormValidate />
   //   </>
   // );
+
   // 0224 課堂: 表單驗證完成版
   // return (
   //   <>
   //     <FormValidate />
   //   </>
   // );
+
+  // 0225 課堂: Refs-IdForm
+  // return (
+  //   <>
+  //     <h3>Id Form</h3>
+  //     <IdForm />
+  //     <hr />
+  //     <h3>Refs Form</h3>
+  //     <RefsForm />
+  //   </>
+  // );
+
+  // 0225 課堂: 類別型元件生命週期方法
+  // 0225 課堂: 函式型元件生命週期方法
+  // const [alive, setAlive] = useState(true);
+  // return (
+  //   <>
+  //     {/* {alive && <CCLifeCycle />} */}
+  //     {alive && <FCLifeCycle />}
+  //     <button
+  //       onClick={() => {
+  //         setAlive(!alive);
+  //       }}
+  //     >
+  //       {alive ? '卸載元件' : '掛載元件'}
+  //     </button>
+  //   </>
+  // );
+
+  // 0225 課堂: 旋轉指示器
+  return (
+    <>
+      <UserList />
+    </>
+  );
 }
 
 export default App;

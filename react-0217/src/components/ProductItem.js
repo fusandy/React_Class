@@ -12,6 +12,7 @@ function ProductItem(props) {
 
   // 陣列物件的寫法
   const { name, category, image, price, count, setCount, handleDelete } = props;
+  console.log(handleDelete)
   return (
     <>
       <div className="card mb-2">

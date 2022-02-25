@@ -108,6 +108,9 @@ function FormValidate() {
           <div className="error">{fieldsError.password}</div>
         )}
         <br />
+
+        {/* ToDo : 0225 確認密碼欄位 */}
+
         <label>Email:</label>
         <input
           type="email"
