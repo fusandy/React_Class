@@ -1,8 +1,9 @@
 // 函式型元件，這邊導入一個SVG Logo
 import logo from './logo.svg';
+import { useEffect } from 'react';
 // import './App.css';
 // 0221 課堂: map 與 key
-import { data } from './data/student';
+// import { data } from './data/student';
 // 0221 課堂: 邏輯判斷流程控制
 import FC from './components/FC';
 // 0221 課堂: 父元件傳遞資料到子元件 props
@@ -40,6 +41,14 @@ import CCLifeCycle from './components/CCLifeCycle';
 import FCLifeCycle from './components/FCLifeCycle';
 // 0225 課堂: 旋轉指示器
 import UserList from './components/UserList';
+// Homework 練習題4
+import BS4RegisterForm from './components/BS4RegisterForm';
+// HW4 產品列表過濾頁面
+import FilterBar from './components/HW4_FilterBar';
+import ProductList from './components/HW4_ProductList';
+import SearchBar from './components/HW4_SearchBar';
+import SortBar from './components/HW4_SortBar';
+import { data } from './data/hw4_product';
 
 const products = [
   {
@@ -351,11 +360,62 @@ function App() {
   // );
 
   // 0225 課堂: 旋轉指示器
+  // return (
+  //   <>
+  //     <UserList />
+  //   </>
+  // );
+
+  // Homework 練習題4
   return (
     <>
-      <UserList />
+      <BS4RegisterForm />
     </>
   );
+
+  // HW4 產品列表過濾頁面
+  // const [products, setProducts] = useState([]);
+  // const [displayProducts, setDisplayProducts] = useState([]);
+
+  // const [tags, setTags] = useState([]);
+  // const [searchWord, setSearchWord] = useState('');
+  // const [sortBy, setSortBy] = useState('');
+
+  // useEffect(() => {
+  //   setProducts(data);
+  //   setDisplayProducts(data);
+  // }, []);
+
+  // return (
+  //   <>
+  //     <div className="container">
+  //       <div className="row">
+  //         <div className="col-md-12">
+  //           <div className="grid search">
+  //             <div className="grid-body">
+  //               <div className="row">
+  //                 <div className="col-md-3">
+  //                   <FilterBar />
+  //                 </div>
+
+  //                 <div className="col-md-9">
+  //                   <h2>
+  //                     <i className="fa fa-file-o"></i> 商品列表
+  //                   </h2>
+  //                   <hr />
+  //                   <SearchBar />
+  //                   <div className="padding"></div>
+  //                   <SortBar />
+  //                   <ProductList products={displayProducts} />
+  //                 </div>
+  //               </div>
+  //             </div>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </>
+  // );
 }
 
 export default App;

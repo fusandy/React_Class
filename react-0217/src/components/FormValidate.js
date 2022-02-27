@@ -17,7 +17,7 @@ function FormValidate() {
   });
 
   // Error Message State
-  const [fieldsError, setFieldErrors] = useState({
+  const [fieldsError, setFieldsErrors] = useState({
     account: '',
     password: '',
     email: '',
@@ -49,13 +49,13 @@ function FormValidate() {
       [e.target.name]: e.target.validationMessage,
     };
     console.log(updatedFieldErrors);
-    setFieldErrors(updatedFieldErrors);
+    setFieldsErrors(updatedFieldErrors);
   };
 
   // 當使用者在更改表單的輸入時，改變fieldsError的state
   const handleFormChange = (e) => {
     const updatedFieldErrors = { ...fieldsError, [e.target.name]: '' };
-    setFieldErrors(updatedFieldErrors);
+    setFieldsErrors(updatedFieldErrors);
   };
 
   // 表單符合HTML5驗證案出提交時
