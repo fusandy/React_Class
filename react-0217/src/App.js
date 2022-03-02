@@ -1,7 +1,7 @@
 // 函式型元件，這邊導入一個SVG Logo
 import logo from './logo.svg';
 import { useEffect } from 'react';
-// import './App.css';
+// import './App.scss';
 // 0221 課堂: map 與 key
 // import { data } from './data/student';
 // 0221 課堂: 邏輯判斷流程控制
@@ -53,6 +53,17 @@ import { data } from './data/hw4_product';
 import JqueryTest from './components/JqueryTest';
 // 0302 課堂: JqueryTestRefs
 import JqueryTestRefs from './components/JqueryTestRefs';
+// 0302 課堂: ReactBootstrap
+import BootstrapTest from './components/BootstrapTest';
+// 0302 課堂: react-icons
+import ReactIcon from './components/ReactIcons';
+// 0302 課堂: router
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import About from './pages/About';
+import Product from './pages/Product';
+import Login from './pages/Login';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
 
 const products = [
   {
@@ -423,11 +434,55 @@ function App() {
 
   // 0302 課堂: JqueryTest
   // 0302 課堂: JqueryTestRefs
+  // 0302 課堂: ReactBootstrap
+  // 0302 課堂: react-icons
+  // return (
+  //   <>
+  //     {/* <JqueryTest /> */}
+  //     {/* <JqueryTestRefs /> */}
+  //     <BootstrapTest />
+  //     <ReactIcon />
+  //   </>
+  // );
+
+  // 0302 課堂: router
+  const [auth, setAuth] = useState(false);
   return (
-    <>
-      <JqueryTest />
-      <JqueryTestRefs />
-    </>
+    <Router>
+      <>
+        <h2>a href</h2>
+        <a href="/">Home</a>
+        <br />
+        <a href="/login">LogIn</a>
+        <hr />
+        <h2>Link to</h2>
+        <Link to="/">Home</Link>
+        <br />
+        <Link to="/login">LogIn</Link>
+        <hr />
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+
+          <Route path="/product">
+            <Product />
+          </Route>
+
+          <Route path="/login">
+            <Login auth={auth} setAuth={setAuth} />
+          </Route>
+
+          <Route exact path="/">
+            <Home auth={auth} />
+          </Route>
+
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </Switch>
+      </>
+    </Router>
   );
 }
 
