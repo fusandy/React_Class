@@ -49,6 +49,10 @@ import ProductList from './components/HW4_ProductList';
 import SearchBar from './components/HW4_SearchBar';
 import SortBar from './components/HW4_SortBar';
 import { data } from './data/hw4_product';
+// 0302 課堂: JqueryTest
+import JqueryTest from './components/JqueryTest';
+// 0302 課堂: JqueryTestRefs
+import JqueryTestRefs from './components/JqueryTestRefs';
 
 const products = [
   {
@@ -367,11 +371,11 @@ function App() {
   // );
 
   // Homework 練習題4
-  return (
-    <>
-      <BS4RegisterForm />
-    </>
-  );
+  // return (
+  //   <>
+  //     <BS4RegisterForm />
+  //   </>
+  // );
 
   // HW4 產品列表過濾頁面
   // const [products, setProducts] = useState([]);
@@ -416,6 +420,15 @@ function App() {
   //     </div>
   //   </>
   // );
+
+  // 0302 課堂: JqueryTest
+  // 0302 課堂: JqueryTestRefs
+  return (
+    <>
+      <JqueryTest />
+      <JqueryTestRefs />
+    </>
+  );
 }
 
 export default App;
