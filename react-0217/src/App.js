@@ -45,10 +45,10 @@ import UserList from './components/UserList';
 import BS4RegisterForm from './components/BS4RegisterForm';
 // HW4 產品列表過濾頁面
 import FilterBar from './components/HW4_FilterBar';
-import ProductList from './components/HW4_ProductList';
+// import ProductList from './components/HW4_ProductList';
 import SearchBar from './components/HW4_SearchBar';
 import SortBar from './components/HW4_SortBar';
-import { data } from './data/hw4_product';
+import { data } from './data/product';
 // 0302 課堂: JqueryTest
 import JqueryTest from './components/JqueryTest';
 // 0302 課堂: JqueryTestRefs
@@ -57,13 +57,23 @@ import JqueryTestRefs from './components/JqueryTestRefs';
 import BootstrapTest from './components/BootstrapTest';
 // 0302 課堂: react-icons
 import ReactIcon from './components/ReactIcons';
-// 0302 課堂: router
+// 0302 0303 課堂: router
+// 頁面元件
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import About from './pages/About';
-import Product from './pages/Product';
+import ProductList from './pages/ProductList';
+import ProductDetail from './pages/ProductDetail';
+import ProductListQS from './pages/ProductListQS';
+import ProductDetailQS from './pages/ProductDetailQS';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import OrderIndex from './pages/Order/OrderIndex';
+import OrderSteps from './pages/Order2/OrderSteps';
+// 0303 課堂: Router實作 Menu
+// 其他元件
+import MainMenu from './components/MainMenu';
+import MLBreadcrumb from './components/MLBreadcrumb';
 
 const products = [
   {
@@ -450,7 +460,7 @@ function App() {
   return (
     <Router>
       <>
-        <h2>a href</h2>
+        {/* <h2>a href</h2>
         <a href="/">Home</a>
         <br />
         <a href="/login">LogIn</a>
@@ -459,24 +469,44 @@ function App() {
         <Link to="/">Home</Link>
         <br />
         <Link to="/login">LogIn</Link>
-        <hr />
+        <hr /> */}
+
+        {/* 選單 */}
+        <MainMenu />
+        <MLBreadcrumb />
+        {/* 路由表 */}
         <Switch>
-          <Route path="/about">
+          {/* <Route path="/about">
             <About />
+          </Route> */}
+
+          <Route path="/order">
+            <OrderIndex />
+          </Route>
+          <Route path="/order-steps/:stepType">
+            <OrderSteps />
+          </Route>
+          {/* QueryString */}
+          <Route path="/product-list-qs">
+            <ProductListQS />
+          </Route>
+          <Route path="/product-detail-qs">
+            <ProductDetailQS />
           </Route>
 
-          <Route path="/product">
-            <Product />
+          {/* 網址上的動態參數 */}
+          <Route path="/product-list">
+            <ProductList />
           </Route>
-
-          <Route path="/login">
+          <Route path="/product-list/product-detail/:id">
+            <ProductDetail />
+          </Route>
+          {/* <Route path="/login">
             <Login auth={auth} setAuth={setAuth} />
-          </Route>
-
+          </Route> */}
           <Route exact path="/">
             <Home auth={auth} />
           </Route>
-
           <Route path="*">
             <NotFound />
           </Route>

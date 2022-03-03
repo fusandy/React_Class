@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 function Home(props) {
   const { auth } = props;
@@ -10,7 +9,5 @@ function Home(props) {
     </>
   );
 }
-
-Home.propTypes = {};
 
 export default Home;
